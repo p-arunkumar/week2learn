@@ -1,39 +1,63 @@
 import React, { Component } from 'react';
-import Header from './Header'
-import GreetingInput from './GreetingInput'
-import GoodRobot from './GoodRobot';
-import KanyeRobot from './KanyeRobot';
-import BadRobot from './BadRobot';
+import './App.css';
+import Navb from './Navbar';
+import Tron from './Tron';
+import Content from './Content';
+import moon from './bettermoon.gif';
+import neoData from './sample-neo'
 
 class App extends Component {
+
   constructor(props){
     super(props)
     this.state = {
-      greeting: 'Bob'
+      rawData:neoData
+      }
     }
-  }
 
-  updateGreeting(greeting){
-    this.setState({greeting: greeting})
-  }
+componentWillMount(){
+  var self = this;
+
+    fetch('http://api.open-notify.org/iss-now.json').then(function(response) {
+      return response.json();
+    })
+    .then(function(response) {
+      self.setState({rawData: response})
+});
+
+}
+
+componentDidMount(){
+  var self = this;
+    setInterval(function(){
+    fetch('http://api.open-notify.org/iss-now.json').then(function(response) {
+      return response.json();
+    })
+    .then(function(response) {
+      self.setState({rawData: response})
+});
+}, 1000);
+}
+
   render() {
     return (
-      <div>
+      <div className="App">
+      <script>
+      </script>
         <div>
-          <Header greeting={this.state.greeting} />
+          <Navb />
         </div>
         <div>
-          <GreetingInput greeting={this.state.greeting} updateGreeting={this.updateGreeting.bind(this)} />
+          <Tron />
         </div>
         <div>
-          <GoodRobot greeting= {this.state.greeting}/>
+          <Content/>
         </div>
         <div>
-          <KanyeRobot greeting = {this.state.greeting}/>
+        <h3> International Space Station Coordinates</h3>
+        <p> Longitude = {this.state.rawData.iss_position.longitude}<br/>
+        Latitude = {this.state.rawData.iss_position.latitude}</p>
         </div>
-        <div>
-          <BadRobot greeting = {this.state.greeting}/>
-      </div>
       </div>
     );
   }

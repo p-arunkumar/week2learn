@@ -1,0 +1,85 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.Jumbo{
+  background-image: url("http://space-facts.com/wp-content/uploads/magellanic-clouds.png");
+  background-size: cover;
+
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.container-fluid {
+  margin: 20px;
+}
+
+.NASAlogo {
+  height: 40px;
+  width: auto;
+
+}
+
+.moon{
+  height: 120px;
+  width:auto;
+  margin: 20px;
+  margin-bottom: 50px;
+}
+
+.Header{
+  font-size:100px;
+  color:#ddd;
+  display:inline;
+  line-height: 200px;
+  font-family: 'Encode Sans Expanded', sans-serif;
+}
+
+.btn-color{
+  background-color: #0066CC;
+  color: white;
+}
+
+.btn{
+  width: 100px;
+  margin: 0px 30px 0px 30px;
+}
+
+h4{
+  font-family: 'Encode Sans Expanded', sans-serif;
+}
+
+.bh{
+  height: 140px;
+  width: auto;
+  margin: 40px 10px 10px 10px;
+  border-radius: 25px;
+}
+
+.bh:hover{
+  opacity:.5;
+}
+
+h3 {
+  border-top-style: 3px;
+  
+}
